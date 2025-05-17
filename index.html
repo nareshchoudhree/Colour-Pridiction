@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Prediction Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>82 LOTTERY</h1>
+            <div class="tabs">
+                <button class="tab active">WinGo 30sec</button>
+                <button class="tab">WinGo 1 Min</button>
+                <button class="tab">WinGo 3 Min</button>
+                <button class="tab">WinGo 5 Min</button>
+            </div>
+        </header>
+
+        <!-- Timer and Round Info -->
+        <div class="timer-section">
+            <div class="how-to-play">How to play</div>
+            <div class="timer">00:30</div>
+            <div class="round-info">
+                <span>WinGo 30sec</span>
+                <span>20250517100051924</span>
+            </div>
+            <div class="recent-numbers">
+                <div class="ball green">7</div>
+                <div class="ball green">9</div>
+                <div class="ball red">2</div>
+                <div class="ball green">3</div>
+                <div class="ball red">8</div>
+            </div>
+        </div>
+
+        <!-- Color Prediction -->
+        <div class="prediction-section">
+            <button class="prediction-btn green">GREEN</button>
+            <button class="prediction-btn violet">VIOLET</button>
+            <button class="prediction-btn red">RED</button>
+        </div>
+
+        <!-- Number Selection -->
+        <div class="number-section">
+            <div class="number-ball violet">0</div>
+            <div class="number-ball green">1</div>
+            <div class="number-ball red">2</div>
+            <div class="number-ball green">3</div>
+            <div class="number-ball red">4</div>
+            <div class="number-ball violet">5</div>
+            <div class="number-ball red">6</div>
+            <div class="number-ball green">7</div>
+            <div class="number-ball red">8</div>
+            <div class="number-ball green">9</div>
+        </div>
+
+        <!-- Multiplier and Big/Small -->
+        <div class="multiplier-section">
+            <button class="multiplier-btn">Random</button>
+            <button class="multiplier-btn">X1</button>
+            <button class="multiplier-btn">X5</button>
+            <button class="multiplier-btn">X10</button>
+            <button class="multiplier-btn">X20</button>
+            <button class="multiplier-btn">X50</button>
+            <button class="multiplier-btn">X100</button>
+        </div>
+        <div class="big-small-section">
+            <button class="big-small-btn big">Big</button>
+            <button class="big-small-btn small">Small</button>
+        </div>
+
+        <!-- Game History -->
+        <div class="history-section">
+            <div class="tabs">
+                <button class="tab active">Game history</button>
+                <button class="tab">Chart</button>
+                <button class="tab">Follow Strategy</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>Number</th>
+                        <th>Big Small</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body">
+                    <!-- Dynamically populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
