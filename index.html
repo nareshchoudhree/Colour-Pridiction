@@ -10,7 +10,7 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>82 LOTTERY</h1>
+            <h1> 82 lotory</h1>
             <div class="tabs">
                 <button class="tab active">WinGo 30sec</button>
                 <button class="tab">WinGo 1 Min</button>
@@ -36,40 +36,43 @@
             </div>
         </div>
 
+        <!-- Win/Lose Message -->
+        <div class="message-section" id="message-section"></div>
+
         <!-- Color Prediction -->
         <div class="prediction-section">
-            <button class="prediction-btn green">GREEN</button>
-            <button class="prediction-btn violet">VIOLET</button>
-            <button class="prediction-btn red">RED</button>
+            <button class="prediction-btn green" data-type="color" data-value="green">GREEN</button>
+            <button class="prediction-btn violet" data-type="color" data-value="violet">VIOLET</button>
+            <button class="prediction-btn red" data-type="color" data-value="red">RED</button>
         </div>
 
         <!-- Number Selection -->
         <div class="number-section">
-            <div class="number-ball violet">0</div>
-            <div class="number-ball green">1</div>
-            <div class="number-ball red">2</div>
-            <div class="number-ball green">3</div>
-            <div class="number-ball red">4</div>
-            <div class="number-ball violet">5</div>
-            <div class="number-ball red">6</div>
-            <div class="number-ball green">7</div>
-            <div class="number-ball red">8</div>
-            <div class="number-ball green">9</div>
+            <div class="number-ball violet" data-type="number" data-value="0">0</div>
+            <div class="number-ball green" data-type="number" data-value="1">1</div>
+            <div class="number-ball red" data-type="number" data-value="2">2</div>
+            <div class="number-ball green" data-type="number" data-value="3">3</div>
+            <div class="number-ball red" data-type="number" data-value="4">4</div>
+            <div class="number-ball violet" data-type="number" data-value="5">5</div>
+            <div class="number-ball red" data-type="number" data-value="6">6</div>
+            <div class="number-ball green" data-type="number" data-value="7">7</div>
+            <div class="number-ball red" data-type="number" data-value="8">8</div>
+            <div class="number-ball green" data-type="number" data-value="9">9</div>
         </div>
 
         <!-- Multiplier and Big/Small -->
         <div class="multiplier-section">
-            <button class="multiplier-btn">Random</button>
-            <button class="multiplier-btn">X1</button>
-            <button class="multiplier-btn">X5</button>
-            <button class="multiplier-btn">X10</button>
-            <button class="multiplier-btn">X20</button>
-            <button class="multiplier-btn">X50</button>
-            <button class="multiplier-btn">X100</button>
+            <button class="multiplier-btn" data-multiplier="random">Random</button>
+            <button class="multiplier-btn" data-multiplier="1">X1</button>
+            <button class="multiplier-btn" data-multiplier="5">X5</button>
+            <button class="multiplier-btn" data-multiplier="10">X10</button>
+            <button class="multiplier-btn" data-multiplier="20">X20</button>
+            <button class="multiplier-btn" data-multiplier="50">X50</button>
+            <button class="multiplier-btn" data-multiplier="100">X100</button>
         </div>
         <div class="big-small-section">
-            <button class="big-small-btn big">Big</button>
-            <button class="big-small-btn small">Small</button>
+            <button class="big-small-btn big" data-type="bigsmall" data-value="big">Big</button>
+            <button class="big-small-btn small" data-type="bigsmall" data-value="small">Small</button>
         </div>
 
         <!-- Game History -->
@@ -94,6 +97,17 @@
             </table>
         </div>
     </div>
+
+    <!-- Bet Input Modal -->
+    <div class="modal" id="bet-modal">
+        <div class="modal-content">
+            <h2>Place Your Bet</h2>
+            <input type="number" id="bet-amount" placeholder="Enter your bet amount" min="1">
+            <button id="confirm-bet">Confirm</button>
+            <button id="cancel-bet">Cancel</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
