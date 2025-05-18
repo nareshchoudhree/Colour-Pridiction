@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const betAmountInput = document.getElementById('bet-amount');
     const confirmBetBtn = document.getElementById('confirm-bet');
     const cancelBetBtn = document.getElementById('cancel-bet');
-    const multiplierModal = document.getElementById('multiplier-modal');
-    const cancelMultiplierBtn = document.getElementById('cancel-multiplier');
 
     let timeLeft = 30;
     let userPrediction = null;
@@ -106,36 +104,32 @@ document.addEventListener('DOMContentLoaded', () => {
     function showBetModal(type, value) {
         betModal.style.display = 'flex';
         betAmountInput.value = '';
+        multiplier = 1; // Reset multiplier
+        document.querySelectorAll('.multiplier-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelector('.multiplier-btn[data-multiplier="1"]').classList.add('active');
+
+        document.querySelectorAll('.multiplier-btn').forEach(button => {
+            button.onclick = () => {
+                multiplier = parseInt(button.dataset.multiplier);
+                document.querySelectorAll('.multiplier-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                // Simulate click sound: new Audio('click.mp3').play();
+            };
+        });
+
         confirmBetBtn.onclick = () => {
             const bet = parseInt(betAmountInput.value);
             if (bet > 0) {
                 userBetAmount = bet;
                 userPrediction = { type, value };
                 betModal.style.display = 'none';
-                showMultiplierModal();
             } else {
                 alert('Please enter a valid bet amount!');
             }
         };
+
         cancelBetBtn.onclick = () => {
             betModal.style.display = 'none';
-        };
-    }
-
-    // Show Multiplier Modal
-    function showMultiplierModal() {
-        multiplierModal.style.display = 'flex';
-        document.querySelectorAll('.multiplier-btn').forEach(button => {
-            button.onclick = () => {
-                multiplier = parseInt(button.dataset.multiplier);
-                multiplierModal.style.display = 'none';
-                // Simulate click sound: new Audio('click.mp3').play();
-            };
-        });
-        cancelMultiplierBtn.onclick = () => {
-            multiplierModal.style.display = 'none';
-            userPrediction = null;
-            userBetAmount = 0;
         };
     }
 
