@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const betAmountInput = document.getElementById('bet-amount');
     const confirmBetBtn = document.getElementById('confirm-bet');
     const cancelBetBtn = document.getElementById('cancel-bet');
+    const multiplierModal = document.getElementById('multiplier-modal');
+    const cancelMultiplierBtn = document.getElementById('cancel-multiplier');
 
     let timeLeft = 30;
     let userPrediction = null;
@@ -80,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (win) {
-            winnings = userBetAmount * multiplier * 2; // Double the bet as winnings
+            winnings = userBetAmount * multiplier * 2; // Base payout is 2x, multiplied by chosen multiplier
             messageSection.textContent = `🎉 You Win! +${winnings} 💰`;
             messageSection.className = 'message-section win';
             // Simulate win sound: new Audio('win.mp3').play();
@@ -107,9 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
         confirmBetBtn.onclick = () => {
             const bet = parseInt(betAmountInput.value);
             if (bet > 0) {
-                userPrediction = { type, value };
                 userBetAmount = bet;
+                userPrediction = { type, value };
                 betModal.style.display = 'none';
+                showMultiplierModal();
             } else {
                 alert('Please enter a valid bet amount!');
             }
@@ -119,25 +122,29 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
+    // Show Multiplier Modal
+    function showMultiplierModal() {
+        multiplierModal.style.display = 'flex';
+        document.querySelectorAll('.multiplier-btn').forEach(button => {
+            button.onclick = () => {
+                multiplier = parseInt(button.dataset.multiplier);
+                multiplierModal.style.display = 'none';
+                // Simulate click sound: new Audio('click.mp3').play();
+            };
+        });
+        cancelMultiplierBtn.onclick = () => {
+            multiplierModal.style.display = 'none';
+            userPrediction = null;
+            userBetAmount = 0;
+        };
+    }
+
     // Handle Prediction Buttons
     document.querySelectorAll('.prediction-btn, .number-ball, .big-small-btn').forEach(button => {
         button.addEventListener('click', () => {
             const type = button.dataset.type;
             const value = button.dataset.value;
             showBetModal(type, value);
-            // Simulate click sound: new Audio('click.mp3').play();
-        });
-    });
-
-    // Handle Multiplier Buttons
-    document.querySelectorAll('.multiplier-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            const multiplierValue = button.dataset.multiplier;
-            if (multiplierValue === 'random') {
-                multiplier = Math.floor(Math.random() * 100) + 1;
-            } else {
-                multiplier = parseInt(multiplierValue);
-            }
             // Simulate click sound: new Audio('click.mp3').play();
         });
     });
