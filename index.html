@@ -10,7 +10,7 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <h1> 82 lotory</h1>
+            <h1>82 LOTTERY</h1>
             <div class="tabs">
                 <button class="tab active">WinGo 30sec</button>
                 <button class="tab">WinGo 1 Min</button>
@@ -60,16 +60,7 @@
             <div class="number-ball green" data-type="number" data-value="9">9</div>
         </div>
 
-        <!-- Multiplier and Big/Small -->
-        <div class="multiplier-section">
-            <button class="multiplier-btn" data-multiplier="random">Random</button>
-            <button class="multiplier-btn" data-multiplier="1">X1</button>
-            <button class="multiplier-btn" data-multiplier="5">X5</button>
-            <button class="multiplier-btn" data-multiplier="10">X10</button>
-            <button class="multiplier-btn" data-multiplier="20">X20</button>
-            <button class="multiplier-btn" data-multiplier="50">X50</button>
-            <button class="multiplier-btn" data-multiplier="100">X100</button>
-        </div>
+        <!-- Big/Small -->
         <div class="big-small-section">
             <button class="big-small-btn big" data-type="bigsmall" data-value="big">Big</button>
             <button class="big-small-btn small" data-type="bigsmall" data-value="small">Small</button>
@@ -105,6 +96,22 @@
             <input type="number" id="bet-amount" placeholder="Enter your bet amount" min="1">
             <button id="confirm-bet">Confirm</button>
             <button id="cancel-bet">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Multiplier Selection Modal -->
+    <div class="modal" id="multiplier-modal">
+        <div class="modal-content">
+            <h2>Select Multiplier</h2>
+            <div class="multiplier-options">
+                <button class="multiplier-btn" data-multiplier="1">X1</button>
+                <button class="multiplier-btn" data-multiplier="5">X5</button>
+                <button class="multiplier-btn" data-multiplier="10">X10</button>
+                <button class="multiplier-btn" data-multiplier="20">X20</button>
+                <button class="multiplier-btn" data-multiplier="50">X50</button>
+                <button class="multiplier-btn" data-multiplier="100">X100</button>
+            </div>
+            <button id="cancel-multiplier">Cancel</button>
         </div>
     </div>
 
